@@ -49,10 +49,10 @@ def apply_coupons(cart, coupons)
     couponed_item_name = "#{coupon} W/COUPON"
     cart_item_with_coupon = find_item_by_name_in_collection(couponed_item_name, cart)
     if cart_item && cart_item[:count] >= coupons[i][:num]
-      if cart_item_with_coupon
-        cart_item_with_coupon[i][:count] += coupons[i][:num]
-        cart_item[:count] -= coupons[i][:num]
-      else
+      # # if cart_item_with_coupon
+      # #   cart_item_with_coupon[i][:count] += coupons[i][:num]
+      # #   cart_item[:count] -= coupons[i][:num]
+      # else
         # binding.pry
         cart_item_with_coupon = {
           :item => couponed_item_name,
@@ -62,7 +62,7 @@ def apply_coupons(cart, coupons)
         }
         cart << cart_item_with_coupon
         cart_item[:count] -= coupons[i][:num]
-      end
+      # end
     end
     i += 1
   end
